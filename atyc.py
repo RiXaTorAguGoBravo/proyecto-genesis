@@ -130,9 +130,9 @@ def actual_periods_table(df_payments: pd.DataFrame, df_credits: pd.DataFrame, da
         labels
     )
     df_periods_table['delay_category'] = delay_category
-    df_periods_table['delay_category'] = df_periods_table[df_periods_table['amount'].notnull()].groupby('credit_id')['delay_category'].tail(1) #
-    df_periods_table['delay_category'] = df_periods_table.groupby('credit_id')['delay_category'].ffill() #
-    df_periods_table['delay_category'] = df_periods_table['delay_category'].fillna(delay_category) #
+    df_periods_table['delay_category'] = df_periods_table[df_periods_table['amount'].notnull()].groupby('credit_id')['delay_category'].tail(1)
+    df_periods_table['delay_category'] = df_periods_table.groupby('credit_id')['delay_category'].ffill()
+    df_periods_table['delay_category'] = df_periods_table['delay_category'].fillna(delay_category)
     df_periods_table = df_periods_table.groupby('credit_id').head(-1)
     return df_periods_table
 

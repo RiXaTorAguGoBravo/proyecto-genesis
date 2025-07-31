@@ -2,6 +2,7 @@ import pandas as pd
 
 from datetime import date
 from dateutil.relativedelta import relativedelta
+from typing import Dict, List
 
 
 def interest_generated(
@@ -22,7 +23,7 @@ def amortization_schedule(
         payment_amount: float,
         opening_date: date,
         first_payment_date: date
-) -> list:
+) -> List[Dict[str, float | date]]:
     i = 0
     balance = amount
     amortization_schedule = []
